@@ -1,0 +1,75 @@
+package SIA02;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+public  class Intern extends Persoana{
+	
+	@Temporal(TemporalType.DATE)
+	private Date 	data_inceput_internship;
+	
+	private Integer perioada_internship;
+	private String 	tip_internship;
+	
+	@ManyToOne
+	private Echipa	echipa;
+	
+	@OneToMany
+	private List <Pontaj_interni> pontaj =new ArrayList();
+	
+	public Date getData_inceput_internship() {
+		return data_inceput_internship;
+	}
+	public void setData_inceput_internship(Date data_inceput_internship) {
+		this.data_inceput_internship = data_inceput_internship;
+	}
+	public Integer getPerioada_internship() {
+		return perioada_internship;
+	}
+	public void setPerioada_internship(Integer perioada_internship) {
+		this.perioada_internship = perioada_internship;
+	}
+	public String getTip_internship() {
+		return tip_internship;
+	}
+	public void setTip_internship(String tip_internship) {
+		this.tip_internship = tip_internship;
+	}
+	public Echipa getEchipa() {
+		return echipa;
+	}
+	public void setEchipa(Echipa echipa) {
+		this.echipa = echipa;
+	}
+	public List<Pontaj_interni> getPontaj() {
+		return pontaj;
+	}
+	public void setPontaj(List<Pontaj_interni> pontaj) {
+		this.pontaj = pontaj;
+	}
+	public Intern(String adresa, Integer cnp, Integer id_persoana, String nr_tel, String nume, String prenume,
+			Date data_inceput_internship, Integer perioada_internship, String tip_internship, Echipa echipa,
+			List<Pontaj_interni> pontaj) {
+		super(adresa, cnp, id_persoana, nr_tel, nume, prenume);
+		this.data_inceput_internship = data_inceput_internship;
+		this.perioada_internship = perioada_internship;
+		this.tip_internship = tip_internship;
+		this.echipa = echipa;
+		this.pontaj = pontaj;
+	}
+	public Intern(String adresa, Integer cnp, Integer id_persoana, String nr_tel, String nume, String prenume) {
+		super(adresa, cnp, id_persoana, nr_tel, nume, prenume);
+	}
+
+	
+	
+
+}
