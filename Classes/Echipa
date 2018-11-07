@@ -1,0 +1,73 @@
+package SIA02;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Echipa {
+	
+	@Id
+	private Integer 		id_echipa;
+	
+	private  String 		specificatii_echipa;
+	
+	@OneToOne
+	private Angajat			angajat;
+	
+	@OneToMany
+	private List <Intern> 	interni=new ArrayList();
+	
+	@ManyToOne
+	private Proiect 		proiect;
+	
+	public Integer getId_echipa() {
+		return id_echipa;
+	}
+	public void setId_echipa(Integer id_echipa) {
+		this.id_echipa = id_echipa;
+	}
+	public String getSpecificatii_echipa() {
+		return specificatii_echipa;
+	}
+	public void setSpecificatii_echipa(String specificatii_echipa) {
+		this.specificatii_echipa = specificatii_echipa;
+	}
+	public Angajat getAngajat() {
+		return angajat;
+	}
+	public void setAngajat(Angajat angajat) {
+		this.angajat = angajat;
+	}
+	public List<Intern> getInterni() {
+		return interni;
+	}
+	public void setInterni(List<Intern> interni) {
+		this.interni = interni;
+	}
+	public Proiect getProiect() {
+		return proiect;
+	}
+	public void setProiect(Proiect proiect) {
+		this.proiect = proiect;
+	}
+	public Echipa(Integer id_echipa, String specificatii_echipa, Angajat angajat, List<Intern> interni,
+			Proiect proiect) {
+		super();
+		this.id_echipa = id_echipa;
+		this.specificatii_echipa = specificatii_echipa;
+		this.angajat = angajat;
+		this.interni = interni;
+		this.proiect = proiect;
+	}
+	public Echipa() {
+		super();
+	}
+	
+
+}
