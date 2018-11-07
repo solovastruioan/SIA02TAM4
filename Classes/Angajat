@@ -1,0 +1,80 @@
+package SIA02;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+public class Angajat extends Persoana{
+	
+	@Temporal(TemporalType.DATE)
+	private Date 	data_angajare;
+	
+	private String	departament;
+	private String 	functie;
+	private Boolean mentor;
+	
+	@OneToOne
+	private Echipa echipa;
+
+	public Date getData_angajare() {
+		return data_angajare;
+	}
+
+	public void setData_angajare(Date data_angajare) {
+		this.data_angajare = data_angajare;
+	}
+
+	public String getDepartament() {
+		return departament;
+	}
+
+	public void setDepartament(String departament) {
+		this.departament = departament;
+	}
+
+	public String getFunctie() {
+		return functie;
+	}
+
+	public void setFunctie(String functie) {
+		this.functie = functie;
+	}
+
+	public Boolean getMentor() {
+		return mentor;
+	}
+
+	public void setMentor(Boolean mentor) {
+		this.mentor = mentor;
+	}
+
+	public Echipa getEchipa() {
+		return echipa;
+	}
+
+	public void setEchipa(Echipa echipa) {
+		this.echipa = echipa;
+	}
+
+	public Angajat(String adresa, Integer cnp, Integer id_persoana, String nr_tel, String nume, String prenume,
+			Date data_angajare, String departament, String functie, Boolean mentor, Echipa echipa) {
+		super(adresa, cnp, id_persoana, nr_tel, nume, prenume);
+		this.data_angajare = data_angajare;
+		this.departament = departament;
+		this.functie = functie;
+		this.mentor = mentor;
+		this.echipa = echipa;
+	}
+
+	public Angajat(String adresa, Integer cnp, Integer id_persoana, String nr_tel, String nume, String prenume) {
+		super(adresa, cnp, id_persoana, nr_tel, nume, prenume);
+	}
+
+	
+
+}
