@@ -1,0 +1,71 @@
+package SIA02;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+
+@Entity
+@Inheritance
+public class Persoana {
+	
+	private String 	adresa;
+	private Integer cnp;
+	@Id
+	@GeneratedValue
+	private Integer id_persoana;
+	private String 	nr_tel;
+	private String	nume;
+	private String 	prenume;
+	
+	
+	public String getAdresa() {
+		return adresa;
+	}
+	public void setAdresa(String adresa) {
+		this.adresa = adresa;
+	}
+	public Integer getCnp() {
+		return cnp;
+	}
+	public void setCnp(Integer cnp) {
+		this.cnp = cnp;
+	}
+	public Integer getId_persoana() {
+		return id_persoana;
+	}
+	public void setId_persoana(Integer id_persoana) {
+		this.id_persoana = id_persoana;
+	}
+	public String getNr_tel() {
+		return nr_tel;
+	}
+	public void setNr_tel(String nr_tel) {
+		this.nr_tel = nr_tel;
+	}
+	public String getNume() {
+		return nume;
+	}
+	public void setNume(String nume) {
+		this.nume = nume;
+	}
+	public String getPrenume() {
+		return prenume;
+	}
+	public void setPrenume(String prenume) {
+		this.prenume = prenume;
+	}
+	public Persoana(String adresa, Integer cnp, Integer id_persoana, String nr_tel, String nume, String prenume) {
+		super();
+		this.adresa = adresa;
+		this.cnp = cnp;
+		this.id_persoana = id_persoana;
+		this.nr_tel = nr_tel;
+		this.nume = nume;
+		this.prenume = prenume;
+	}
+	public Persoana() {
+		super();
+	}
+
+}
