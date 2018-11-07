@@ -1,0 +1,104 @@
+package SIA02;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+public class Proiect {
+	
+	@Temporal(TemporalType.DATE)
+	private Date 		data_finalizare;
+	
+	@Temporal(TemporalType.DATE)
+	private Date 		start_proiect;
+	
+	private Integer 	buget;
+	private String 		denumire_proiect;
+	@Id
+	private Integer 	id_proiect;
+	
+	private String 		specificatii_proiect;
+	
+	@OneToMany
+	private List <Echipa> echipe=new ArrayList();
+
+	public Date getData_finalizare() {
+		return data_finalizare;
+	}
+
+	public void setData_finalizare(Date data_finalizare) {
+		this.data_finalizare = data_finalizare;
+	}
+
+	public Date getStart_proiect() {
+		return start_proiect;
+	}
+
+	public void setStart_proiect(Date start_proiect) {
+		this.start_proiect = start_proiect;
+	}
+
+	public Integer getBuget() {
+		return buget;
+	}
+
+	public void setBuget(Integer buget) {
+		this.buget = buget;
+	}
+
+	public String getDenumire_proiect() {
+		return denumire_proiect;
+	}
+
+	public void setDenumire_proiect(String denumire_proiect) {
+		this.denumire_proiect = denumire_proiect;
+	}
+
+	public Integer getId_proiect() {
+		return id_proiect;
+	}
+
+	public void setId_proiect(Integer id_proiect) {
+		this.id_proiect = id_proiect;
+	}
+
+	public String getSpecificatii_proiect() {
+		return specificatii_proiect;
+	}
+
+	public void setSpecificatii_proiect(String specificatii_proiect) {
+		this.specificatii_proiect = specificatii_proiect;
+	}
+
+	public List<Echipa> getEchipe() {
+		return echipe;
+	}
+
+	public void setEchipe(List<Echipa> echipe) {
+		this.echipe = echipe;
+	}
+
+	public Proiect(Date data_finalizare, Date start_proiect, Integer buget, String denumire_proiect, Integer id_proiect,
+			String specificatii_proiect, List<Echipa> echipe) {
+		super();
+		this.data_finalizare = data_finalizare;
+		this.start_proiect = start_proiect;
+		this.buget = buget;
+		this.denumire_proiect = denumire_proiect;
+		this.id_proiect = id_proiect;
+		this.specificatii_proiect = specificatii_proiect;
+		this.echipe = echipe;
+	}
+
+	public Proiect() {
+		super();
+	}
+
+}
